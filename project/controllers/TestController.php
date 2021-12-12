@@ -20,4 +20,10 @@ class TestController extends Controller
     {
         echo "Act3!!!!";
     }
+
+    public function act($params)
+    {
+        echo "2";
+        var_dump($params);
+    }
 }
