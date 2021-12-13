@@ -12,7 +12,7 @@
 				$controller = new $fullName;
 				
 				if (method_exists($controller, $track->action)) {
-					$result = $controller->{$track->action}($track->params);
+    					$result = $controller->{$track->action}($track->params);
 					
 					if ($result) {
 						return $result;

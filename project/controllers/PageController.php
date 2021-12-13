@@ -6,16 +6,20 @@
     class PageController extends Controller
     {
 
+        private $pages;
 
-        public function show1()
+        public function __construct()
         {
-            echo "1";
+            $this->pages = [
+                '1' => 'страница 1',
+                '2' => 'страница 2',
+                '3' => 'страница 3',
+            ];
         }
 
-
-        public function show2()
+        function show($params)
         {
-            echo "2";
+            echo $this->pages[$params['id']];
         }
     }
 

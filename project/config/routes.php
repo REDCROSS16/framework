@@ -12,5 +12,7 @@
         new Route('/test/:var1/:var2', 'test', 'act'),
 
         new Route('/sumofnumber/:num1/:num2/:num3', 'num', 'sum'),
+
+        new Route('/page/:id/', 'page', 'show'),
 	];
 	
