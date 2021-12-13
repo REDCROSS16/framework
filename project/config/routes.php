@@ -14,5 +14,10 @@
         new Route('/sumofnumber/:num1/:num2/:num3', 'num', 'sum'),
 
         new Route('/page/:id/', 'page', 'show'),
+
+        new Route('/users/:id/', 'user', 'show'),
+        new Route('/users/:id/:key/', 'user', 'info'),
+        new Route('/user/all', 'user', 'all'),
+        new Route('/user/first/:n/', 'user', 'first'),
 	];
 	
