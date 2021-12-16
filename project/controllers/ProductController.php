@@ -47,15 +47,12 @@ class ProductController extends Controller
 
     function show($params)
     {
-        echo "<pre>";
-        print_r($this->products[$params['n']]['name']);
-        echo "<br>";
-        print_r($this->products[$params['n']]['price']);
-        echo "<br>";
-        print_r($this->products[$params['n']]['quantity']);
-        echo "<br>";
-        print_r($this->products[$params['n']]['category']);
-        echo "</pre>";
+        return $this->render('product/show', [
+            'product'  => $this->products[$params['n']]['name'],
+            'price'    => $this->products[$params['n']]['price'],
+            'quantity' => $this->products[$params['n']]['quantity'],
+            'category' => $this->products[$params['n']]['category']
+        ]);
     }
 
 }
