@@ -42,17 +42,33 @@ class ProductController extends Controller
                 'quantity' => 9,
                 'category' => 'category3',
             ],
+            6 => [
+                'name'     => 'грибы',
+                'price'    => 5,
+                'quantity' => 1,
+                'category' => 'грибная',
+            ]
         ];
     }
 
     function show($params)
     {
+        $this->title = 'Показать продукт : ' . $this->products[$params['n']]['name'];
         return $this->render('product/show', [
             'product'  => $this->products[$params['n']]['name'],
             'price'    => $this->products[$params['n']]['price'],
             'quantity' => $this->products[$params['n']]['quantity'],
             'category' => $this->products[$params['n']]['category']
         ]);
+    }
+
+
+    function showAll() {
+        $this->title = 'Показать все продукты';
+        return $this->render('product/showAll',[
+            'products' => $this->products
+            ]
+        );
     }
 
 }

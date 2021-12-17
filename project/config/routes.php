@@ -22,7 +22,8 @@
         new Route('/user/all', 'user', 'all'),
         new Route('/user/first/:n/', 'user', 'first'),
 
-
+        new Route('/product/all/', 'product', 'showAll'),
         new Route('/product/:n/', 'product', 'show'),
+
 	];
 	

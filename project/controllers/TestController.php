@@ -13,7 +13,9 @@ class TestController extends Controller
 
     public function act2()
     {
+        $this->title = 'тест акт 2';
         echo "Act2!!!!";
+        return $this->render('', '');
     }
 
     public function act3()
