@@ -19,6 +19,7 @@
         function show($params)
         {
             $this->title = $this->pages[$params['id']]['title'];
+            echo '<img src="https://img5.goodfon.ru/original/1920x1080/9/18/zima-sneg-tigr-risunok-novyi-god-new-year-god-tigra-tiger-wi.jpg">';
 //            echo $this->pages[$params['id']];
             return $this->render('', '');
         }
