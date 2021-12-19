@@ -2,6 +2,7 @@
 
     namespace project\controllers;
     use Core\Controller;
+    use \Project\Models\Page;
 
     class PageController extends Controller
     {
@@ -42,6 +43,23 @@
                 'header' => 'список юзеров',
                 'users'  => ['user1', 'user2', 'user3'],
             ]);
+        }
+
+
+        public function test()
+        {
+            $page = new Page;
+            $data = $page->getById(2);
+            echo '<pre>';
+            print_r($data);
+
+
+            $data = $page->getById(1);
+            print_r($data);
+
+            $data = $page->getByRange(1,2);
+            print_r($data);
+            echo '</pre>';
         }
     }
 
