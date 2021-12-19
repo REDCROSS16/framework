@@ -3,6 +3,7 @@
 namespace project\controllers;
 
 use Core\Controller;
+use Project\Models\Product;
 
 class ProductController extends Controller
 {
@@ -51,24 +52,52 @@ class ProductController extends Controller
         ];
     }
 
-    function show($params)
+//    function show($params)
+//    {
+//        $this->title = 'Показать продукт : ' . $this->products[$params['n']]['name'];
+//        return $this->render('product/show', [
+//            'product'  => $this->products[$params['n']]['name'],
+//            'price'    => $this->products[$params['n']]['price'],
+//            'quantity' => $this->products[$params['n']]['quantity'],
+//            'category' => $this->products[$params['n']]['category']
+//        ]);
+//    }
+//
+//
+//    function showAll() {
+//        $this->title = 'Показать все продукты';
+//        return $this->render('product/showAll',[
+//            'products' => $this->products
+//            ]
+//        );
+//    }
+
+    public function one($params)
     {
-        $this->title = 'Показать продукт : ' . $this->products[$params['n']]['name'];
-        return $this->render('product/show', [
-            'product'  => $this->products[$params['n']]['name'],
-            'price'    => $this->products[$params['n']]['price'],
-            'quantity' => $this->products[$params['n']]['quantity'],
-            'category' => $this->products[$params['n']]['category']
-        ]);
-    }
+        $product = (new Product) ->getById($params['id']);
+        $this->title = "Продукт " . $product['name'];
 
-
-    function showAll() {
-        $this->title = 'Показать все продукты';
-        return $this->render('product/showAll',[
-            'products' => $this->products
+        return $this->render('product/one',
+            [
+                'product' => $product,
+//                'cost'=> $product['cost'],
+//                'quantity' => $product['quantity'],
+//                'describe' => $product['describe'],
+                'h1' => $this->title,
             ]
         );
+    }
+
+    public function all()
+    {
+        $this->title = 'Все продукты';
+        $products = (new Product) ->getAll();
+
+        return $this->render('product/all',
+        [
+            'products' => $products,
+            'h1' => $this->title
+        ]);
     }
 
 }

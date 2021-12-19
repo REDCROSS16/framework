@@ -61,6 +61,29 @@
             print_r($data);
             echo '</pre>';
         }
+
+
+        public function one($params)
+        {
+            $page = (new Page)->getById($params['id']);
+            $this->title = $page['title'];
+            return $this->render('page/one',
+                [
+                    'page' => $page,
+                    'h1'   => $this->title,
+                    'text' => $page['text']
+            ]);
+        }
+
+        public function all()
+        {
+            $this->title = 'Все страницы';
+            $pages = (new Page)->getAll();
+            return $this->render('page/all', [
+               'pages' => $pages,
+                'h1'   => $this->title,
+            ]);
+        }
     }
 
 
